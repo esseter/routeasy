@@ -30,6 +30,17 @@ except:
     print('Unexpected error:', sys.exc_info()[0])
     sys.exit(1)
 
+print('''
+ ____   ___   __ __  ______    ___   ____  _____ __ __
+|    \ /   \ |  |  ||      |  /  _] /    |/ ___/|  |  |
+|  D  )     ||  |  ||      | /  [_ |  o  (   \_ |  |  |
+|    /|  O  ||  |  ||_|  |_||    _]|     |\__  ||  ~  |
+|    \|     ||  :  |  |  |  |   [_ |  _  |/  \ ||___, |
+|  .  \     ||     |  |  |  |     ||  |  |\    ||     |
+|__|\_|\___/  \__,_|  |__|  |_____||__|__| \___||____/
+
+''')
+
 print('----------------------------------------------------')
 # Do a pingsweep on network 102.168.1.0/24
 # -O argument is to detect the OS of the machines connected to the network
@@ -69,7 +80,7 @@ if (os.getuid() == 0):
     print('scanning localnet')
     nm.scan(routerIP, arguments='-O')
     for h in nm.all_hosts():
-        print('Your router brand is: ')
+        print('Your router\'s brand is: ')
         if 'mac' in nm[h]['addresses']:
             mac = nm[h]['addresses'].get('mac')
             print(nm[h]['vendor'].get(mac))
